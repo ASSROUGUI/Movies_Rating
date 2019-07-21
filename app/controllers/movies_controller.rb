@@ -9,6 +9,12 @@ class MoviesController < ApplicationController
   end
 
   def create
+    @movie=Movie.new(movie_params)
+    if @movie.save
+        redirect_to @movie
+    else
+        render 'new'
+    end 
   end
 
   def search
@@ -16,4 +22,17 @@ class MoviesController < ApplicationController
 
   def delete
   end
+end
+
+def index
+end
+
+def new
+    @movie=Movie.new
+end
+
+
+private
+def movie_params
+params.require(:movie).permit(:title, :content)
 end
