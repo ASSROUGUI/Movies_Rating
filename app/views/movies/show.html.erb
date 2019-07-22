@@ -15,9 +15,9 @@
   <strong>Description:</strong>
   <%= @movie.description %>
 </p>
-# <%= video_tag(@movie.tyoler) %>
+# <%= video_tag(@movie.tyoler) %> # <iframe src='https://www.youtube.com/embed/<%= @movie.tyoler%>?rel=0&autoplay=<%= params[:autoplay] || 0 %>' frameborder='0' allowfullscreen></iframe>
+
 <%= video_tag (@movie.tyoler).to_s, :size => "320x240", :controls => true %>
-<iframe src='https://www.youtube.com/embed/<%= @movie.tyoler%>?rel=0&autoplay=<%= params[:autoplay] || 0 %>' frameborder='0' allowfullscreen></iframe>
 
 
 
