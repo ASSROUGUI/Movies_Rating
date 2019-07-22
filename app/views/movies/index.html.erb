@@ -1,20 +1,6 @@
 # <p id="notice"><%= notice %></p>
 <h1>Movies#new</h1>
 <p>Find me in app/views/movies/index.html.erb</p>
-<h1>Movies</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Movies_name</th>
-      <th>Description</th>
-      <th>Movie length</th>
-      <th>Actors name</th>
-      <th>Rating</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  
 <% if !user_signed_in? %>
 <div class="jumbotron">
   <h1>Your Favorite Movies Reviewed</h1>
@@ -22,40 +8,43 @@
   <p><%= link_to "Sign Up To Write A Review", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
 </div>
 <% end %>
+<h1>Movies</h1>
 
-<div class="row">
-<% @movie.each do |movie| %>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-    </div>
-  </div>
-<% end %>
-</div>
-<tbody>
-
-  <tbody>
-    <% @movie.each do |movie| %>
-      <tr>
-        <td><%= movie.movies_name %></td>
-        <td><%= movie.description %></td>
-        <td><%= movie.movie_length %></td>
-        <td><%= movie.actors_name %></td>
-        <td><%= movie.rating %></td>
-        <td>
-        <%=  image_tag(movie.poster) %>
-      </td>
-        <td>
-          <%= raw movie.tyoler %>
-        </td>
-        <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<table>
+ <tr>
+<p> <th>Movies_name</th></p>
+<p>  <th>Description</th></p> 
+<p>   <th>Movie length</th></p> 
+<p>  <th>Actors name</th></p> 
+<p> <th>Rating</th></p> 
+<p> <th colspan="3"></th></p> 
+</tr>
 </table>
+<table>
+<tbody>
+<% @movie.each do |movie| %>
+  <tr>
+    <td><%= movie.movies_name %></td>
+    <td><%= movie.description %></td>
+    <td><%= movie.movie_length %></td>
+    <td><%= movie.actors_name %></td>
+    <td><%= movie.rating %></td>
+    <td><%=  image_tag(movie.poster, size: "200x200", alt: "Movie Image") %></td>
+    <td><%= raw movie.tyoler %></td>
+   
+  </tr>
+<% end %>
+</tbody>
+</table>
+  
 
-<br>
+
+
+
+
+
+
+
 
 <%= link_to 'New Movie', new_movie_path %>
 

@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-    before_action :set_appointment, only: [:show, :edit, :update, :destroy]
   
  
     def index
@@ -47,12 +46,12 @@ class ReviewsController < ApplicationController
     end
   
     private
-      def set_review
-        @review = Review.find(params[:id])
-      end
+      # def set_review
+      #   @review = Review.find(params[:id])
+      # end
   
       def review_params
-        params.require(:review).permit(:reason, :movie_id, :user_id)
+        params.require(:review).permit(:review, :movie_id, :user_id)
       end
   end
   

@@ -4,5 +4,6 @@
 
 <%= render 'form', movie: @movie %>
 
-<%= link_to 'Show', @movie %> |
+<%= link_to 'Show', @movie %> 
 <%= link_to 'Back', movies_path %>
+<td><%= link_to 'Delete', @movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>

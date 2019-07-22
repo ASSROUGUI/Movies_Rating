@@ -2,53 +2,88 @@
 # <p>Find me in app/views/movies/show.html.erb</p>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Movies_name:</strong>
-  <%= @movie.movies_name %>
-</p>
-<p><%= image_tag(@movie.poster, size: "200x200", alt: "Post Image") %></p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+       
+<p><%= image_tag(@movie.poster, size: "200x200", alt: "Movie Image") %> </p>
 
 
-<p>
-  <strong>Movies_image</strong>
-  <%=  link_to image_tag(@movie.poster), movies_path ,style:'width:100%;height:auto'%>
-</p>
-<%= image_tag(@movie.poster, size: "100x100", alt: "Movie Image") %>
-<p>
+<div><%= raw  (@movie.tyoler)%> </div>
 
-<head>
-  <link href="https://vjs.zencdn.net/7.6.0/video-js.css" rel="stylesheet">
+        <div class="star-rating" data-score= <%= @avg_review %> ></div>
+        <em><%= "#{@movie.movie_length} review" %></em>
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong>Title:</strong></td>
+                <td><%= @movie.movies_name %></td>
+              </tr>
+              <tr>
+                <td><strong>Description:</strong></td>
+                <td><%= @movie.description %></td>
+              </tr>
+              <tr>
+                <td><strong>Movie length:</strong></td>
+                <td><%= @movie.movie_length %></td>
+              </tr>
+             
+              <tr>
+                <td><strong>Rating:</strong></td>
+                <td><%= @movie.rating %></td>
+              </tr>
+            </tbody>
+          </table>
+          <%= link_to " Show",(@review) %>
+        </div>
+      </div>
+      <div class="col-md-7 col-md-offset-1">
+     
+        
 
-  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
-</head>
-<div style="width:400px;height:400px">
-<strong>Movies_tyoler</strong>
-<%= raw @movie.tyoler %> </p>
+        <% if @reviews.blank? %>
+          <h3>No reviews just yet, would you like to add the first!</h3>
+          <%=link_to 'Write a Review', movies_new_path, class: "btn btn-danger" %>
+        <% else %>
+          <% @reviews.each do |review| %>
+            <div class="reviews">
+              <div class="star-rating" data-score= <%= review.rating %> ></div>
+              <p><%= review.review %></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-<p>
-  <strong>Description:</strong>
-  <%= @movie.description %>
-  <script src='https://vjs.zencdn.net/7.6.0/video.js'></script>
-</p>
+
+
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
 
 
 
 
 
-<p>
-  <strong>Movie length:</strong>
-  <%= @movie.movie_length %>
-</p>
 
-<p>
-  <strong>Actors name:</strong>
-  <%= @movie.actors_name %>
-</p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @movie.rating %>
-</p>
+
+
+
+
+
+
+
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>
