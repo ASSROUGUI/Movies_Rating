@@ -1,5 +1,6 @@
 # <p id="notice"><%= notice %></p>
-
+<h1>Movies#new</h1>
+<p>Find me in app/views/movies/index.html.erb</p>
 <h1>Movies</h1>
 
 <table>
@@ -14,6 +15,23 @@
     </tr>
   </thead>
   
+<% if !user_signed_in? %>
+<div class="jumbotron">
+  <h1>Your Favorite Movies Reviewed</h1>
+  <p>Hashtag hoodie mumblecore selfies. Authentic keffiyeh leggings Kickstarter, narwhal jean shorts XOXO Vice Austin cardigan. Organic drinking vinegar freegan pickled.</p>
+  <p><%= link_to "Sign Up To Write A Review", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+</div>
+<% end %>
+
+<div class="row">
+<% @movie.each do |movie| %>
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+    </div>
+  </div>
+<% end %>
+</div>
+<tbody>
 
   <tbody>
     <% @movie.each do |movie| %>
@@ -23,8 +41,12 @@
         <td><%= movie.movie_length %></td>
         <td><%= movie.actors_name %></td>
         <td><%= movie.rating %></td>
-         <td><%= movie.tyoler %></td> 
-         <td><%=  (movie.poster) %></td>
+        <td>
+        <%=  image_tag(movie.poster) %>
+      </td>
+        <td>
+          <%= raw movie.tyoler %>
+        </td>
         <td><%= link_to 'Show', movie %></td>
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
         <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>

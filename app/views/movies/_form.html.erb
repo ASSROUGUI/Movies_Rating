@@ -27,14 +27,16 @@
     </div>
  
   <div class="input-field col s6">
-        <%= form.label :img, 'poster' %>
+        <%= form.label :poster, 'poster' %>
         <%= form.url_field :poster %>
     </div>
 
-  <div class="field">
-  <%= form.label :tyoler %>
-  <%= form.url_field :tyoler %>
+<div class="input-field col s6">
+<%= form.label :tyoler %>
+<%= form.text_field :tyoler %>
 </div>
+
+        
     <div class="field">
       <%= form.label :actors_name %>
       <%= form.text_field :actors_name %>
