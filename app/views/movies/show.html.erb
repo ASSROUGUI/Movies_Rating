@@ -36,24 +36,23 @@
               </tr>
             </tbody>
           </table>
-          <%= link_to " Show",(@review) %>
         </div>
       </div>
       <div class="col-md-7 col-md-offset-1">
      
         
 
-        <% if @reviews.blank? %>
+        <% if @movie.reviews.blank? %>
           <h3>No reviews just yet, would you like to add the first!</h3>
-          <%=link_to 'Write a Review', movies_new_path, class: "btn btn-danger" %>
-        <% else %>
-          <% @reviews.each do |review| %>
+          <% else %>
+          <% @movie.reviews.each do |review| %>
             <div class="reviews">
-              <div class="star-rating" data-score= <%= review.rating %> ></div>
-              <p><%= review.review %></p>
+            <div class="star-rating"> rating:<%= review.rating %> </div>
+            <p><%= review.comment %> by  <%=review.user.email%></p>
             </div>
-          <% end %>
-        <% end %>
+            <% end %>
+            <% end %>
+            <%=link_to 'Write a Review', new_movie_review_path(@movie), class: "btn btn-danger" %>
       </div>
     </div>
   </div>

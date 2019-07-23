@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   get 'movies/delete'
   get 'movies/new'
 
-  root 'reviews#index'
-  resources :movies
+  root 'movies#index'
+  resources :movies do 
   resources :reviews
+  end 
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

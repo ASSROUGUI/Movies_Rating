@@ -14,3 +14,22 @@
  *= require_self
  */
  @import "bootstrap";
+
+body {
+    background: #0F2847;
+    color: aliceblue;
+}
+
+.review_title {
+    margin: 0 0 20px 0;
+    color: aliceblue;
+}
+
+.movies {
+    color: aliceblue;
+	padding: 15px 0;
+	border-bottom: 1px solid #EAEAEA;
+	.star-rating {
+		padding-bottom: 8px;
+	}
+}
