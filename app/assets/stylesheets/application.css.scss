@@ -17,16 +17,18 @@
 
 body {
     background: #0F2847;
-    color: aliceblue;
+    color: #0F2847;
+    padding-bottom: 8px;
+   
 }
-
+h1{color:white}
 .review_title {
     margin: 0 0 20px 0;
     color: aliceblue;
 }
-
+button{color:black}
 .movies {
-    color: aliceblue;
+    color: red;
 	padding: 15px 0;
 	border-bottom: 1px solid #EAEAEA;
 	.star-rating {

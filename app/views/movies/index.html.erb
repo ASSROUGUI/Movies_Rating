@@ -2,8 +2,7 @@
 <div><div>
 <class="btn btn-primary"><%= link_to 'Add New Movie', new_movie_path %></a>
 </div></div>
-</br>
-
+<p>Find me in app/views/movies/index.html.erb</p>
 
 <% if !user_signed_in? %>
 
@@ -16,13 +15,19 @@
 
 
 <div class="row">
+<div class="rowl">
+</br> <p> ................. </p> </br> 
+</div>
   <% @movie.each do |movie| %>
+    </br> <p> . </p> </br>
     <div class="card-deck">
     <div class="card">
-      <img class="card-img-top" <%= link_to image_tag(movie.poster, size: "300x300", alt: "Movie Image") ,movie%>  >
+      <img class="card-img-top" <%= link_to  image_tag(movie.poster, size: "300x300", alt: "Movie Image") ,movie%>  >
       <div class="card-body">
-        <h5 class="card-title"> <%= link_to    movie.movies_name ,  movie %></li></h5>
-        <p class="card-text"><small class="text-muted">Created at: <%= movie.created_at %></small></p>
+       <h5 class="card-title"> <%= link_to    movie.movies_name ,  movie %></li></h5>
+       <p class="card-text"><small class="text-muted">rating: <%= movie.rating %></small></p>
+
+       <p class="card-text"><small class="text-muted">Created at: <%= movie.created_at %></small></p>
         
         <% if(user_signed_in? && (current_user && current_user.admin))%>
         <td><%= link_to 'Edit', edit_movie_path(movie) %>|,,</td> |
@@ -34,7 +39,8 @@
       <% end %>
     </div>
     </div>
-  
+    </br> <p> ..... </p> </br>
+
 </div>
 
 
