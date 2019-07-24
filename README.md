@@ -47,5 +47,5 @@ here 3 moduls :movie,review,user
 
 ![image](https://user-images.githubusercontent.com/38358417/61827299-dc770780-ae6c-11e9-8557-4f74bfff6ff4.png)
 
-the most hardest part : give current user accessibility just to his/her resources
-the most fun part : upload the video and poster
+*the most hardest part : give current user accessibility just to his/her resources
+*the most fun part : upload the video and poster
