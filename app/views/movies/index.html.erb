@@ -23,6 +23,7 @@
       <div class="card-body">
         <h5 class="card-title"> <%= link_to    movie.movies_name ,  movie %></li></h5>
         <p class="card-text"><small class="text-muted">Created at: <%= movie.created_at %></small></p>
+        
         <% if(user_signed_in? && (current_user && current_user.admin))%>
         <td><%= link_to 'Edit', edit_movie_path(movie) %>|,,</td> |
         <td><%= link_to 'Destroy',movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>

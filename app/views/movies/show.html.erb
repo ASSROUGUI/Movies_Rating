@@ -49,6 +49,7 @@
           <% @movie.reviews.each do |review| %>
             <div class="reviews">
             <div class="star-rating" data-score= <%= review.rating %> ></div>
+            <p><%= review.rating %> /5 .. by  <%=review.user.email.split('@')[0].capitalize%></p>
 
             <p><%= review.comment %> by  <%=review.user.email.split('@')[0].capitalize%></p>
              </div>
