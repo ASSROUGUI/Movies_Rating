@@ -11,26 +11,26 @@
 
 
         <div class="star-rating" data-score= <%= @avg_review %> ></div>
-        <em><%= "#{@movie.movie_length} review" %></em>
+    
         <div class="table-responsive">
           <table class="table">
             <tbody>
               <tr>
                 <td><strong class="white" >Title:</strong></td>
-                <td><%= @movie.movies_name %></td>
+                <td><div class="color" ><%= @movie.movies_name %></div></td>
               </tr>
               <tr>
                 <td><strong class="white" >Description:</strong></td>
-                <td><%= @movie.description %></td>
+                <td><div class="color" ><%= @movie.description %></div></td>
               </tr>
               <tr>
                 <td><strong class="white" >Movie length:</strong></td>
-                <td><%= @movie.movie_length %></td>
+                <td><div class="color" ><%= @movie.movie_length %></div></td>
               </tr>
              
               <tr>
                 <td><strong class="white" >Rating:</strong></td>
-                <td><%= @movie.rating %></td>
+                <td><div class="color" ><%= @movie.rating %></div></strong></td>
               </tr>
             </tbody>
           </table>
@@ -68,16 +68,6 @@
 </div>
 
 
-
-<script>
-    $('.star-rating').raty({
-      path: '/assets/',
-      readOnly: true,
-      score: function() {
-            return $(this).attr('data-score');
-    }
-  });
-</script>
 
 
 
