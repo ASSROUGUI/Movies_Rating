@@ -16,20 +16,20 @@
           <table class="table">
             <tbody>
               <tr>
-                <td><strong>Title:</strong></td>
+                <td><strong class="white" >Title:</strong></td>
                 <td><%= @movie.movies_name %></td>
               </tr>
               <tr>
-                <td><strong>Description:</strong></td>
+                <td><strong class="white" >Description:</strong></td>
                 <td><%= @movie.description %></td>
               </tr>
               <tr>
-                <td><strong>Movie length:</strong></td>
+                <td><strong class="white" >Movie length:</strong></td>
                 <td><%= @movie.movie_length %></td>
               </tr>
              
               <tr>
-                <td><strong>Rating:</strong></td>
+                <td><strong class="white" >Rating:</strong></td>
                 <td><%= @movie.rating %></td>
               </tr>
             </tbody>
@@ -45,12 +45,11 @@
           <h3>No reviews just yet, would you like to add the first!</h3>
           <% else %>
           <% @movie.reviews.each do |review| %>
-            <div class="reviews">
-            <div class="star-rating" data-score= <%= review.rating %> ></div>
+           
             <p><%= review.rating %> /5 .. by  <%=review.user.email.split('@')[0].capitalize%></p>
 
             <p><%= review.comment %> by  <%=review.user.email.split('@')[0].capitalize%></p>
-             </div>
+            
            
              
              <% if(user_signed_in? && ((current_user && current_user.admin) || (current_user.id == review.user_id)))%>
@@ -100,9 +99,4 @@
 <% end %>
 <%= link_to 'Back', movies_path %>
 
-<style>body {
-  background: #A4C0E4;
-  color: aliceblue;
-}
-<style>
 
