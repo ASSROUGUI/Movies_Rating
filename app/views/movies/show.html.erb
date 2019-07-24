@@ -51,14 +51,20 @@
             <div class="star-rating" data-score= <%= review.rating %> ></div>
 
             <p><%= review.comment %> by  <%=review.user.email.split('@')[0].capitalize%></p>
-            </div>
+             </div>
+           
+             
+             <% if(user_signed_in? && ((current_user && current_user.admin) || (current_user.id == review.user_id)))%>
+             <td><%= link_to 'Delete',"/movies/#{@movie.id}/reviews/#{review.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+             <% end %>
+
             <% end %>
             <% end %>
 
             <%=link_to 'Write a Review', new_movie_review_path(@movie), class: "btn btn-danger" %>
 
       </div>
-  
+    
     </div>
   </div>
 </div>
