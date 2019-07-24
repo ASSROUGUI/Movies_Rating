@@ -1,8 +1,7 @@
 
 <div><div>
 <class="btn btn-primary"><%= link_to 'Add New Movie', new_movie_path %></a>
-</div></div>
-<p>Find me in app/views/movies/index.html.erb</p>
+</br> <p> </p> </br>
 
 <% if !user_signed_in? %>
 
@@ -16,13 +15,13 @@
 
 <div class="row">
 <div class="rowl">
-</br> <p> ................. </p> </br> 
+
 </div>
   <% @movie.each do |movie| %>
-    </br> <p> . </p> </br>
+  
     <div class="card-deck">
     <div class="card">
-      <img class="card-img-top" <%= link_to  image_tag(movie.poster, size: "300x300", alt: "Movie Image") ,movie%>  >
+      <img class="card-img-top" <%= link_to  image_tag(movie.poster, size: "350x350", alt: "Movie Image") ,movie%>  
       <div class="card-body">
        <h5 class="card-title"> <%= link_to    movie.movies_name ,  movie %></li></h5>
        <p class="card-text"><small class="text-muted">rating: <%= movie.rating %></small></p>
