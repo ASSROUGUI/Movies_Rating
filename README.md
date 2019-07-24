@@ -1,5 +1,5 @@
 # Movies rating website :
-link : https://movie-app-sei.herokuapp.com/movies 
+
 *Watching movies take you to a world of fantasy , this site have The most famous and best films for family movies so you can have fun and watch movies with your lovely family and your children will see good movies
 
 
