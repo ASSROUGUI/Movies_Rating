@@ -1,11 +1,14 @@
 # <p id="notice"><%= notice %></p>
 
+<div><div>
+<a href="#" class="btn btn-primary"><%= link_to 'Add New Movie', new_movie_path %></a>
+</div></div>
 <p>Find me in app/views/movies/index.html.erb</p>
+
 <% if !user_signed_in? %>
-<div class="jumbotron">
+
   <h1>Your Favorite Movies Reviewed</h1>
-  <p>Hashtag hoodie mumblecore selfies. Authentic keffiyeh leggings Kickstarter, narwhal jean shorts XOXO Vice Austin cardigan. Organic drinking vinegar freegan pickled.</p>
-  <p><%= link_to "Sign Up To Write A Review", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  <p><%= link_to "Sign Up To Write a Review", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
 </div>
 <% end %>
 
@@ -20,8 +23,11 @@
       <div class="card-body">
         <h5 class="card-title"> <%= link_to    movie.movies_name ,  movie %></li></h5>
         <p class="card-text"><small class="text-muted">Created at: <%= movie.created_at %></small></p>
-     
-      <% if(user_signed_in? && (current_user.id == movie.user_id))%>
+        <% if(user_signed_in? && (current_user && current_user.admin))%>
+        <td><%= link_to 'Edit', edit_movie_path(movie) %>|,,</td> |
+        <td><%= link_to 'Destroy',movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      <% if(user_signed_in? && (current_user.id == movie.user_id)&& (!current_user.admin))%>
       <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
       <td><%= link_to 'Destroy',movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
@@ -36,9 +42,4 @@
 
 <% end %>
 
-
-
-
-
-<%= link_to 'New Movie', new_movie_path %>
 
