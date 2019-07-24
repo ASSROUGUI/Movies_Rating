@@ -12,8 +12,24 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require jquery.raty.js
 
 //= require popper
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+$(function(){
+    $('.star_rating').click(function(){
+var star = $(this);
+var movie_id =$(this).attr('data-movie-id');
+var stars =$(this).attr('data-stars');
+for (i=1; i<=5 ;i++){
+if(i <=stars){
+    $('#' +movie_id +'_'+i).addClass('on');
+} else{
+$('#' +movie_id +'_'+i).removeClass('on');
+}
+
+ }
+    });
+});

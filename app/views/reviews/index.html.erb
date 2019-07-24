@@ -15,6 +15,7 @@
   <% @review.each do |review| %>
       <tr>
         <td><%= review.rating %></td>
+        <div class="review_rating" data-score="<%= review.rating%>" ></div>
         <td><%= review.comment %></td>
         <td><%= link_to 'Show', review %></td>
         <td><%= link_to 'Edit', edit_review_path(review) %></td>

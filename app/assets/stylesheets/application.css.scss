@@ -33,3 +33,13 @@ body {
 		padding-bottom: 8px;
 	}
 }
+.star-rating {
+    padding-bottom: 8px;
+}
+.rating_star {
+    background: url('/images/star.gif') 0 0;
+    padding-bottom: 8px;
+    display: block;
+    float: left;
+}
+.on{background-position: 0 16px;}
