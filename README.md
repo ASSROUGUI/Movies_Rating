@@ -2,6 +2,7 @@
 
 *Watching movies take you to a world of fantasy , this site have The most famous and best films for family movies so you can have fun and watch movies with your lovely family and your children will see good movies
 
+*This website for upload movies's poster ، movie trailer and write a review
 
 *This README would normally document whatever steps are necessary to get the
 application up and running.
