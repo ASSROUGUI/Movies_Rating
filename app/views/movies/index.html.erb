@@ -1,17 +1,16 @@
 
 <div><div>
-<class="btn btn-primary"><%= link_to 'Add New Movie', new_movie_path %></a>
 </div></div>
-<div> <p class="blue">________________________________________ </p> </div>
 
 <% if !user_signed_in? %>
 
   <h1>Your Favorite Movies Reviewed</h1>
+  </br>
   <p><%= link_to "Sign Up To Write a Review", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
 </div>
 <% end %>
 
-   
+<br>
 
 
 <div class="row">
@@ -23,7 +22,6 @@
 
   <% @movie.each do |movie| %>
     <div class="card-deck">
-    <p class="blue"> ... </p> 
 
     <div class="card">
    
@@ -35,7 +33,6 @@
        <p class="card-text"><small class="text-muted">rating: <%= movie.rating %>/5</small></p>
 
        <p class="card-text"><small class="text-muted">Created at: <%= movie.created_at %></small></p>
-       <div> <p class="blue">________________________________________ </p> </div>
         <% if(user_signed_in? && (current_user && current_user.admin))%>
         <td><%= link_to 'Edit', edit_movie_path(movie) %>|,,</td> |
         <td><%= link_to ' | Destroy',movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>

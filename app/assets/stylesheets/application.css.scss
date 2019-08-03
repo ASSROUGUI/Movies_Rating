@@ -22,15 +22,29 @@ body {
    margin-bottom: 144px;
 
 }
-.blue{ 
-    color: #0F2847;
+
+
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+     background-color:#0F2847;
+    background-clip: border-box;
+  
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    padding-right: 10px;
+    margin-right: -33px;
+    
 }
-.white{color:white;}
-h1{color:white}
-.color{
-    color:#CBCAD1;
 
-
-   
-
-}
+.card-body {
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    background-color: white;}
