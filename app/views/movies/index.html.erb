@@ -33,6 +33,7 @@
        <p class="card-text"><small class="text-muted">rating: <%= movie.rating %>/5</small></p>
 
        <p class="card-text"><small class="text-muted">Created at: <%= movie.created_at %></small></p>
+      #  <div> <p class="blue">________________________________________ </p> </div>
         <% if(user_signed_in? && (current_user && current_user.admin))%>
         <td><%= link_to 'Edit', edit_movie_path(movie) %>|,,</td> |
         <td><%= link_to ' | Destroy',movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -43,17 +44,110 @@
       <% end %>
     
     </div>
+   
+   
 
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+$(document).ready(function(){
+  
+  $('#stars li').on('mouseover', function(){
+    var onStar = parseInt($(this).data('value'), 10); 
+   
+    $(this).parent().children('li.star').each(function(e){
+      if (e < onStar) {
+        $(this).addClass('hover');
+      }
+      else {
+        $(this).removeClass('hover');
+      }
+    });
+    
+  }).on('mouseout', function(){
+    $(this).parent().children('li.star').each(function(e){
+      $(this).removeClass('hover');
+    });
+  });
+  
+  
+
+  $('#stars li').on('click', function(){
+    var onStar = parseInt($(this).data('value'), 10); 
+    var stars = $(this).parent().children('li.star');
+    
+    for (i = 0; i < stars.length; i++) {
+      $(stars[i]).removeClass('selected');
+    }
+    
+    for (i = 0; i < onStar; i++) {
+      $(stars[i]).addClass('selected');
+    }
+    
+ 
+   
+  });
+  
+  
+});
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
   
 
     </div>
     
    
 
-
-
-
 <% end %>
+
+
+
+
+
+
+
+
+
 
 
